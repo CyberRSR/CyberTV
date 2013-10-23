@@ -43,7 +43,7 @@ if ($row_cnt > 0)
 	$result = mysqli_query($connect, $sql);
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$new_views = $row[views] + 1;
-	$sql = "UPDATE `users` SET `views`='$new_views' WHERE `serv_addr`='$t_serv_addr'";
+	$sql = $sql = "UPDATE `users` SET `views`='$new_views' WHERE `serv_addr`='$t_serv_addr'";
 	$result = mysqli_query($connect, $sql);
 	
 	header("Location: $servchurl");
