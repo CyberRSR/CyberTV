@@ -67,12 +67,12 @@ while($row = mysqli_fetch_assoc($result))
 	echo "$row[ch_name] / $row[views]<br>\n";
 }
 
-echo "<br>\n<br>\nUsers / Plays:<br>\n";
+echo "<br>\n<br>\nUsers / Plays / Views:<br>\n";
 $sql = "SELECT * FROM `users` WHERE 1";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_assoc($result))
 {
-	echo "$row[login] / $row[plays]<br>\n";
+	echo "$row[login] / $row[plays] / $row[views]<br>\n";
 }
 
 mysqli_close($connect);
