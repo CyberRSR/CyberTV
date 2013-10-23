@@ -59,12 +59,26 @@ while($row = mysqli_fetch_assoc($result))
 }
 echo "Plays: $plays<br>\n";
 
+$sql = "SELECT * FROM `users` WHERE `serv_active`=1";
+$result = mysqli_query($connect, $sql);
+$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+$row_cnt = mysqli_num_rows($result);
+echo "Servers: $row_cnt<br>\n";
+
 echo "<br>\n<br>\nActive chanels / Views:<br>\n";
 $sql = "SELECT * FROM `users` WHERE `active`=1";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_assoc($result))
 {
 	echo "$row[ch_name] / $row[views]<br>\n";
+}
+
+echo "<br>\n<br>\nActive servers / Plays / Views:<br>\n";
+$sql = "SELECT * FROM `users` WHERE `serv_active`=1";
+$result = mysqli_query($connect, $sql);
+while($row = mysqli_fetch_assoc($result))
+{
+	echo "$row[login] / $row[plays] / $row[views]<br>\n";
 }
 
 echo "<br>\n<br>\nUsers / Plays / Views:<br>\n";
