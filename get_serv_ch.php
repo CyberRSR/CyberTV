@@ -23,7 +23,7 @@ if ($row_cnt > 0)
 {
 	$sql = "SELECT `plays` FROM `users` WHERE `md5pass`='$params[md5pass]'";
 	$result = mysqli_query($connect, $sql);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$row = mysqli_fetch_assoc($result);
 	$new_plays = $row[plays] + 1;
 	$sql = $sql = "UPDATE `users` SET `plays`='$new_plays' WHERE `md5pass`='$params[md5pass]'";
 	$result = mysqli_query($connect, $sql);
@@ -41,7 +41,7 @@ if ($row_cnt > 0)
 	
 	$sql = "SELECT `views` FROM `users` WHERE `serv_addr`='$t_serv_addr'";
 	$result = mysqli_query($connect, $sql);
-	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+	$row = mysqli_fetch_assoc($result);
 	$new_views = $row[views] + 1;
 	$sql = $sql = "UPDATE `users` SET `views`='$new_views' WHERE `serv_addr`='$t_serv_addr'";
 	$result = mysqli_query($connect, $sql);
