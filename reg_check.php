@@ -37,7 +37,7 @@ $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 if((strlen($user[login]) > 0) && (strlen($user[pass]) > 0) && ($row[login] != $user[login]))
 {	
 	$user[md5pass] = hash('md5', $user[login].$user[pass]);
-	$sql = "INSERT INTO users (login, pass, md5pass) VALUES ('$user[login]', '$user[pass]', '$user[md5pass]') "; 
+	$sql = "INSERT INTO users (login, pass, md5pass, serv_addr) VALUES ('$user[login]', '$user[pass]', '$user[md5pass]', '0') "; 
 	$result = mysqli_query($connect, $sql);
 	echo"md5pass: $user[md5pass]<br>\n"; 
 }
