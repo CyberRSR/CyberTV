@@ -37,7 +37,9 @@ if ($row_cnt > 0)
 		$row = mysqli_fetch_assoc($result);
 		$t_serv_addr = $row[serv_addr];
 	}
-	$servchurl = 'http://'.$t_serv_addr.'/'.strrchr($params[ch_path],'pid/');
+	if(strstr($params[ch_path],'pid/') !== false) $servchurl = 'http://'.$t_serv_addr.'/'.strstr($params[ch_path],'pid/');
+	if(strstr($params[ch_path],'torrent/') !== false) $servchurl = 'http://'.$t_serv_addr.'/'.strstr($params[ch_path],'torrent/');
+	if(strstr($params[ch_path],'torrent-tv.ru/q/') !== false) $servchurl = 'http://'.$t_serv_addr.'/'.'torrent/http%3A%2F%2Fapi.torrent-tv.ru%2Fq%2F'.strstr(substr(strstr($params[ch_path],'torrent-tv.ru/q/'),16), '==.acelive', true).'%3D%3D.acelive';
 	
 	$sql = "SELECT `views` FROM `users` WHERE `serv_addr`='$t_serv_addr'";
 	$result = mysqli_query($connect, $sql);
