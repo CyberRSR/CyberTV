@@ -73,12 +73,12 @@ while($row = mysqli_fetch_assoc($result))
 	echo "$row[ch_name] / $row[views]<br>\n";
 }
 
-echo "<br>\n<br>\nActive servers / Plays / Views:<br>\n";
+echo "<br>\n<br>\nActive servers / Plays / Views / Statistics:<br>\n";
 $sql = "SELECT * FROM `users` WHERE `serv_active`=1";
 $result = mysqli_query($connect, $sql);
 while($row = mysqli_fetch_assoc($result))
 {
-	echo "$row[login] / $row[plays] / $row[views]<br>\n";
+	echo "$row[login] / $row[plays] / $row[views] / <a href=\"http://$row[serv_addr]/stat\">stat</a> <br>\n";
 }
 
 echo "<br>\n<br>\nUsers / Plays / Views:<br>\n";
