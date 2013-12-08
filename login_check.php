@@ -27,6 +27,7 @@ $account = "xxx";
 $password = "xxx"; 
 $dbname = "xxx"; 
 
+
 if((strlen($user[login]) > 0) && (strlen($user[pass]) > 0))
 {
 	$connect = mysqli_connect($host, $account, $password); 
@@ -47,6 +48,10 @@ if((strlen($user[login]) > 0) && (strlen($user[pass]) > 0))
 	{
 		echo"Login ERROR<br>\n";
 	}
+	
+	echo "<br>\n<br>\n<br>\n";
+	echo "<form enctype=\"multipart/form-data\"\naction=\"convert_m3u.php\" method=\"POST\">\n<input type=\"hidden\" name=\"MAX_FILE_SIZE\" value=1000000\">\n";
+	echo "<input type=\"file\" name=\"m3u_file\">\n<input type=\"submit\" value=\"Send file\">\n</form>";
 	
 	mysqli_close($connect);
 }
